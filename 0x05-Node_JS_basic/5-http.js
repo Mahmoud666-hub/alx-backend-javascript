@@ -1,8 +1,8 @@
-const http = require('http');
+// const http = require('http');
 const countStudents = require('./2-read_file');
 
 const port = 1245;
-const host = 'localhost';
+const host = '127.0.0.1';
 const app = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
@@ -15,7 +15,7 @@ const app = http.createServer((req, res) => {
     try {
       const result = countStudents(process.argv[2]);
       res.write(result);
-    } catch (err) {
+    } catch (error) {
       res.write('Cannot load the database');
     }
 
