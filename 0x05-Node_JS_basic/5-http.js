@@ -30,7 +30,6 @@ const app = http.createServer((req, res) => {
         res.writeHead(404);
         res.end(`This is the list of our students\n${error.message}`);
       });
-
   }
 });
 
