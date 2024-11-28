@@ -11,25 +11,15 @@ const app = http.createServer((req, res) => {
     res.end('');
   }
   if (req.url === '/students') {
-    // res.write('This is the list of our students\n');
-    // try {
-    //   const result = countStudents(process.argv[2]);
-    //   res.write(result);
-    // } catch (err) {
-    //   res.write('Cannot load the database');
-    // }
+    res.write('This is the list of our students\n');
+    try {
+      const result = countStudents(process.argv[2]);
+      res.write(result);
+    } catch (err) {
+      res.write('Cannot load the database');
+    }
 
-    // res.end();
-
-    countStudents(process.argv[2])
-      .then((data) => {
-        res.writeHead(200);
-        res.end(`This is the list of our students\n${data}`);
-      })
-      .catch((error) => {
-        res.writeHead(404);
-        res.end(`This is the list of our students\n${error.message}`);
-      });
+    res.end();
   }
 });
 
